@@ -1,0 +1,139 @@
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #F6F1F9;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #6E49A3;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: #A992D8;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #8C78BF;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.icono {
+  font-size: 2rem;
+  color: #A992D8;
+  margin-bottom: 15px;
+}
+
+.valor-card, .tech-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.valor-card:hover, .tech-card:hover {
+  transform: scale(1.05);
+}
+
+.hero {
+  background: linear-gradient(135deg, #F6F1F9 60%, #E5D4F2);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero img {
+  max-width: 280px;
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #A992D8;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9rem;
+}
+
+
+/* ==== FORMULARIOS DE AUTENTICACIÓN ==== */
+
+.auth-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #E8DFF5, #F6F1F9);
+  padding: 40px;
+}
+
+.auth-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  transition: transform 0.3s ease;
+}
+
+.auth-card:hover {
+  transform: translateY(-5px);
+}
+
+.auth-card h2 {
+  color: #6E49A3;
+  font-weight: 700;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn-primary {
+  background-color: #A992D8;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+  border-radius: 12px;
+}
+
+.btn-primary:hover {
+  background-color: #8C78BF;
+}
+
+.link {
+  color: #6E49A3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
