@@ -4,6 +4,7 @@ const urlsToCache = [
   "/index.html",
   "/login.html",
   "/register.html",
+  "/donationcenter.html",
   "/styles.css",
   "/script.js",
   "/firebase.js",
@@ -28,3 +29,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
