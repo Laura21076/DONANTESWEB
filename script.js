@@ -1,20 +1,33 @@
-// Registro del Service Worker para la PWA
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('sw.js')
-    .then(() => console.log("✅ Service Worker registrado correctamente."))
-    .catch(err => console.error("❌ Error al registrar el Service Worker:", err));
-}
 
-
-import { auth, db } from "/firebase.js";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+import { auth, db } from "./firebase.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 import {
   doc,
   setDoc,
   serverTimestamp,
   GeoPoint
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+// ================== PWA Service Worker ==================
+
+// Registrar el Service Worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(registration => {
+        console.log("Service Worker registrado con éxito:", registration.scope);
+      })
+      .catch(error => {
+        console.error("Error al registrar el Service Worker:", error);
+      });
+  });
+}
+
+
 
 // ================== VALIDACIÓN DE FORMULARIOS ==================
 (() => {
@@ -31,7 +44,7 @@ import {
   });
 })();
 
-// Registro de usuario con rol dinámico
+// ================== REGISTRO DE USUARIO ==================
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
@@ -41,57 +54,55 @@ if (registerForm) {
     const email = document.getElementById("registerEmail").value.trim();
     const password = document.getElementById("registerPassword").value.trim();
     const confirm = document.getElementById("confirmPassword").value.trim();
-    const roleId = document.getElementById("roleSelect").value; // <-- nuevo
 
     if (password !== confirm) {
       alert("Las contraseñas no coinciden");
       return;
     }
 
-    if (!roleId) {
-      alert("Debes seleccionar un rol");
-      return;
-    }
-
     try {
+      // 1️⃣ Crear usuario en Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Ubicación opcional
+      // 2️⃣ Obtener ubicación geográfica (si el usuario lo permite)
       let location = null;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (pos) => {
           location = new GeoPoint(pos.coords.latitude, pos.coords.longitude);
 
+          // 3️⃣ Guardar en Firestore
           await setDoc(doc(db, "users", user.uid), {
             name: name,
             email: email,
             fechaRegistro: serverTimestamp(),
             location: location,
-            roleId: roleId
+            roleId: "/roles/donor"
           });
 
           alert("Cuenta creada con éxito 💜");
           window.location.href = "login.html";
-        }, async () => {
+        }, async (error) => {
+          console.warn("Ubicación no concedida, guardando sin coordenadas.");
           await setDoc(doc(db, "users", user.uid), {
             name: name,
             email: email,
             fechaRegistro: serverTimestamp(),
             location: null,
-            roleId: roleId
+            roleId: "/roles/donor"
           });
 
           alert("Cuenta creada con éxito 💜");
           window.location.href = "login.html";
         });
       } else {
+        // Si el navegador no soporta geolocalización
         await setDoc(doc(db, "users", user.uid), {
           name: name,
           email: email,
           fechaRegistro: serverTimestamp(),
           location: null,
-          roleId: roleId
+          roleId: "/roles/donor"
         });
 
         alert("Cuenta creada con éxito 💜");
@@ -105,7 +116,6 @@ if (registerForm) {
   });
 }
 
-
 // ================== INICIO DE SESIÓN ==================
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -118,7 +128,7 @@ if (loginForm) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       alert("Bienvenido a Donantes 💜");
-      window.location.href = "donationcenter.html";
+      window.location.href = "index.html";
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
       alert("Correo o contraseña incorrectos.");
