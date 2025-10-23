@@ -76,7 +76,6 @@ footer {
   font-size: 0.9rem;
 }
 
-
 /* ==== FORMULARIOS DE AUTENTICACIÓN ==== */
 
 .auth-section {
@@ -136,4 +135,150 @@ footer {
 
 .link:hover {
   text-decoration: underline;
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  color: #6E49A3 !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-brand img {
+  width: 36px;
+  height: 36px;
+}
+
+.nav-link {
+  color: #6E49A3 !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #8C78BF !important;
+}
+
+.navbar-toggler {
+  border-color: #A992D8;
+}
+
+.navbar-toggler-icon {
+  background-color: transparent;
+  filter: invert(40%) sepia(30%) saturate(400%) hue-rotate(230deg);
+}
+
+.nav-item .btn {
+  font-weight: 600;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+
+.nav-item .btn-outline-primary {
+  border: 1.5px solid #A992D8;
+  color: #6E49A3;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-item .btn-outline-primary:hover {
+  background-color: #A992D8;
+  color: #fff;
+}
+
+.nav-item .btn-primary {
+  background-color: #A992D8;
+  border: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.nav-item .btn-primary:hover {
+  background-color: #8C78BF;
+}
+
+/* Ajustes responsive */
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .nav-item .btn, .nav-item .btn-outline-primary {
+    width: 100%;
+    margin: 5px 0 0 0;
+  }
+}
+
+
+/* ==== CARRUSEL HERO ==== */
+
+ .carousel-title {
+    color: #6E49A3;
+    font-weight: 700;
+    font-size: 1.8rem;
+    
+  }
+  .carousel-text {
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  @media (min-width: 768px) {
+    .carousel-title {
+      font-size: 2.5rem;
+    }
+    .carousel-text {
+      font-size: 1.2rem;
+    }
+  }
+
+  .section-title {
+  color: #6E49A3;
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.text-purple {
+  color: #6E49A3;
+  font-weight: bold;
+}
+
+.card {
+  border-radius: 16px;
+  border: none;
+  background-color: #F8F4FB;
+}
+
+.card-body p {
+  text-align: justify;
+}
+
+.valor-item {
+  background-color: #EDE3F8;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  color: #6E49A3;
+  box-shadow: 0 3px 8px rgba(110, 73, 163, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.valor-item:hover {
+  transform: translateY(-4px);
+  background-color: #DCCBF2;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .valor-item {
+    padding: 10px 16px;
+  }
 }
