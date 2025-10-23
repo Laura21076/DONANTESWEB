@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Donantes | Dona, ayuda, transforma</title>
-  <meta name="description" content="Donantes es una PWA que conecta a personas para donar y recibir artículos útiles mediante geolocalización e integración IoT, apoyando el ODS 12." />
+  <title>Donantes</title>
+  <meta name="description" content="Donantes conecta a personas para donar y recibir artículos útiles mediante geolocalización e IoT, apoyando el ODS 12." />
 
   <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    crossorigin="anonymous"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
   <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/a2e0e9c6b0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -22,119 +19,157 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- PWA Manifest -->
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#A992D8" />
 </head>
 
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container text-center">
-      <h1>💜 Dona, ayuda, transforma</h1>
-      <p>Conecta con personas solidarias mediante geolocalización e innovación IoT para cuidar el planeta.</p>
-      <div>
-        <a href="register.html" class="btn btn-primary me-3">Registrarse</a>
- 	<a href="login.html" class="btn btn-primary me-3">Iniciar sesión</a>
-        <a href="#about" class="btn btn-outline-dark">Conocer más</a>
+
+<!-- NAVBAR RESPONSIVA -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F6F1F9;">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+      💜 Donantes
+      <!---<img src="assets/logo.png" alt="Logo">--->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a href="#how" class="nav-link">Cómo funciona</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a href="register.html" class="btn btn-primary">Registrarse</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a href="login.html" class="btn btn-outline-primary">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- CARRUSEL RESPONSIVE CON COLORES PASTEL -->
+<div id="donantesCarousel" class="carousel slide" data-bs-ride="carousel">
+  <!-- Indicadores -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#donantesCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#donantesCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#donantesCarousel" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="d-flex flex-column justify-content-center align-items-center text-center p-4" style="min-height:300px; background: linear-gradient(135deg, #F6F1F9 60%, #E5D4F2);">
+        <h2 class="carousel-title">Dona, ayuda, transforma</h2>
+        <p class="carousel-text">Con pequeños actos podemos cambiar grandes historias.</p>
+        <a href="#about" class="btn btn-primary mt-3">Conocer más</a>
       </div>
-      <img src="assets/logo-512.png" alt="Donación" />
     </div>
-  </section>
 
-  <!-- ¿Qué es Donantes? -->
-  <section id="about" class="section text-center">
-    <div class="container">
-      <h2>💡 ¿Qué es Donantes?</h2>
-      <p class="mt-3">
-        <strong>Donantes</strong> es una PWA que une a donantes y receptores de artículos útiles, 
-        utilizando <strong>geolocalización</strong> y <strong>casilleros inteligentes (IoT con ESP32)</strong>. 
-        Promueve la economía circular, la solidaridad y la sostenibilidad.
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="d-flex flex-column justify-content-center align-items-center text-center p-4" style="min-height:300px; background: linear-gradient(135deg, #E8F8F2, #F6F1F9);">
+        <h2 class="carousel-title">Nuestro compromiso</h2>
+        <p class="carousel-text" style="max-width:600px;">
+          Donantes promueve el consumo responsable y la solidaridad. Cada donación ayuda al planeta y a la comunidad.
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="d-flex flex-column justify-content-center align-items-center text-center p-4" style="min-height:300px; background: linear-gradient(135deg, #FDEFEF, #F6F1F9);">
+        <h2 class="carousel-title">Inspira y comparte</h2>
+        <p class="carousel-text" style="max-width:600px;">
+          Dona lo que ya no necesitas y permite que alguien más lo use. ¡Juntos podemos hacer la diferencia!
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#donantesCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#donantesCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+
+<!-- SECCIÓN OBJETIVO, MISIÓN, VISIÓN Y VALORES -->
+<section id="about" class="container my-5">
+  <h2 class="text-center section-title mb-5">Nuestro Propósito</h2>
+
+  <!-- OBJETIVO -->
+  <div class="card shadow objetivo mb-4 p-4">
+    <div class="card-body">
+      <h4 class="card-title text-purple text-center mb-3">Objetivo</h4>
+      <p class="card-text text-justify">
+        Fomentar la economía circular y la solidaridad social mediante la tecnología, ayudando a reducir los residuos y apoyar a quienes más lo necesitan. 
+        <strong>Queremos crear un puente entre la empatía y la innovación, impulsando comunidades más sostenibles y humanas.</strong>
       </p>
-      <img src="https://cdn-icons-png.flaticon.com/512/2210/2210415.png" alt="Economía circular" class="mt-4" width="150" />
     </div>
-  </section>
+  </div>
 
-  <!-- Compromiso -->
-  <section class="section text-center" style="background-color:#E8F8F2;">
-    <div class="container">
-      <h2>🌍 Nuestro compromiso con el planeta</h2>
-      <p class="mt-3">
-        Donantes contribuye al <strong>ODS 12</strong> fomentando el consumo y la producción responsables.  
-        Cada donación ayuda a reducir los desechos y alienta a reutilizar en lugar de desechar.
-      </p>
-      <img src="https://cdn-icons-png.flaticon.com/512/1973/1973847.png" alt="ODS 12" class="mt-4" width="160" />
-    </div>
-  </section>
-
-  <!-- Misión y Visión -->
-  <section class="section text-center">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-4">
-          <h2>🧭 Misión</h2>
-          <p>
-            Promover la solidaridad y empatía en comunidades, facilitando la donación mediante 
-            tecnología accesible y sostenible.
+  <!-- MISIÓN Y VISIÓN -->
+  <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+    <div class="col">
+      <div class="card shadow h-100 p-3">
+        <div class="card-body">
+          <h5 class="card-title text-purple text-center mb-3">Misión</h5>
+          <p class="card-text text-justify">
+            Promover la solidaridad y empatía hacia quienes no cuentan con los recursos necesarios para adquirir productos esenciales. 
+            Facilitamos la donación a través de centros de recolección accesibles y conectados, donde cada aporte marca la diferencia.
           </p>
         </div>
-        <div class="col-md-6 mb-4">
-          <h2>👁️ Visión</h2>
-          <p>
-            Convertirnos en una red nacional que transforme la cultura del consumo hacia un modelo responsable y solidario.
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow h-100 p-3">
+        <div class="card-body">
+          <h5 class="card-title text-purple text-center mb-3">Visión</h5>
+          <p class="card-text text-justify">
+            Ser una red nacional que transforme la cultura del consumo hacia un modelo responsable, solidario y sostenible. 
+            Buscamos expandir Donantes en todo el país, impulsando una comunidad digital comprometida con el cambio positivo.
           </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Valores -->
-  <section class="section" style="background-color:#F6F1F9;">
-    <div class="container text-center">
-      <h2>💚 Nuestros valores</h2>
-      <div class="row mt-4">
-        <div class="col-md-3 mb-3">
-          <div class="valor-card">
-            <i class="fas fa-hands-helping icono"></i>
-            <h5>Solidaridad</h5>
-            <p>Compartir lo que tenemos para apoyar a otros.</p>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <div class="valor-card">
-            <i class="fas fa-heart icono"></i>
-            <h5>Empatía</h5>
-            <p>Ponernos en el lugar de los demás.</p>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <div class="valor-card">
-            <i class="fas fa-users icono"></i>
-            <h5>Inclusión</h5>
-            <p>Todos pueden donar o recibir sin barreras.</p>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <div class="valor-card">
-            <i class="fas fa-leaf icono"></i>
-            <h5>Conciencia ambiental</h5>
-            <p>Cuidar el planeta con cada acción.</p>
-          </div>
-        </div>
+  <!-- VALORES -->
+  <div class="card shadow p-4">
+    <div class="card-body text-center">
+      <h5 class="card-title text-purple mb-4">Nuestros Valores</h5>
+
+      <div class="row row-cols-2 row-cols-md-3 g-3 justify-content-center">
+        <div class="col"><div class="valor-item">Solidaridad</div></div>
+        <div class="col"><div class="valor-item">Empatía</div></div>
+        <div class="col"><div class="valor-item">Respeto</div></div>
+        <div class="col"><div class="valor-item">Inclusión</div></div>
+        <div class="col"><div class="valor-item">Conciencia Ambiental</div></div>
       </div>
     </div>
-  </section>
-
-  
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Donantes | Proyecto universitario | ODS 12: Producción y Consumo Responsables</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="script.js"></script>
+  </div>
+</section>
 
 
+
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Donantes | Proyecto universitario | ODS 12: Producción y Consumo Responsables</p>
+</footer>
+
+<!-- Scripts -->
+<script type="module" src="script.js"></script>
 </body>
 </html>
